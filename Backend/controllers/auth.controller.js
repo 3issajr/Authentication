@@ -201,7 +201,7 @@ export const resetPassword = async (req, res) => {
 
 export const checkAuth = async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select("-password");
+    const user = await User.findById(req.userId).select("-password"); //select("-password") means unselect or exclude
     if (!user) {
       return res
         .status(400)
